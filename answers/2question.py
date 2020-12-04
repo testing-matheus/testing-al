@@ -4,30 +4,6 @@ import numpy as np
 # modulo de trabajo
 from src.module import calcular_intervalo_confianza
 
-
-def comments_():
-    """
-    PREGUNTA 2:
-    2) Ver la diferencia de que hay entre las dos features del dataset
-
-    Suposiciones:
-        Se considera el supuesto que la muestra es ALEATORIA (variables
-        aleatorias independientes e idénticamente distribuidas)-->
-        DIST Normal (podemos usar t. central del límite para estimar
-                     intervalos de confianza)
-
-    Respuesta:
-        Dado los intervalos de confianza tanto de la columna DIFF
-        (diferencia entre BD y medición actual) como del error relativo son
-        son muy bajas, con un intervalo e confianza al 99%
-        Error absoluto =  1.606 (+-) 0.289 % --> máx error  3.779 %
-        Error medio = 30.803 (+-) 6.068
-        Avanzamos a la medición a la siguiente pregunta.
-
-    """
-    return True
-
-
 # lectura de los datos
 data = pd.read_excel("data/ryder.xlsx")
 

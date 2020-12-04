@@ -1,46 +1,23 @@
 # librerias
 import random
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
+# from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 # module
 from src.module import (regression_lineal_lasso, graficar_resultados,
                         lasso_lars, alpha_lasso_optimization)
 
-
-def comments_():
-    """
-    PREGUNTA 3:
-    4) Encontrar los coefs de la regresión
-
-    Suposiciones:
-        Se considera el supuesto que la muestra es ALEATORIA (variables
-        aleatorias independientes e idénticamente distribuidas)-->
-        DIST Normal (podemos usar t. central del límite para estimar
-                     intervalos de confianza)
-
-    Respuesta:
-        Dado los intervalos de confianza tanto de la columna DIFF
-        (diferencia entre BD y medición actual) como del error relativo son
-        son muy bajas, con un intervalo e confianza al 99%
-        Error absoluto =  1.606 (+-) 0.289 % --> máx error  3.779 %
-        Error medio = 30.803 (+-) 6.068
-        Avanzamos a la medición.
-
-    """
-    return True
-
-
-raw_data = pd.read_excel("data/ryder.xlsx")
+# cargamos la data ya limpiada
 x = pd.read_excel("data/cleaned.xlsx", index_col=0)
 
-y = x[["TAX"]]
+y = x[["FIXED_TAX"]]
 x = x[['ACT_SQFT']]
 
 # Crear objecto scaler
-scaler = MinMaxScaler(feature_range=(0, 1))
-# Normalizar
-x = scaler.fit_transform(x)
+# scaler = MinMaxScaler(feature_range=(0, 1))
+# # Normalizar
+# x = scaler.fit_transform(x)
+
 # # Guardar objeto scaler
 seed = random.randint(1, 21)
 # Dividir los conjuntos de datos
@@ -59,6 +36,8 @@ print("MAE", mae)
 y_pred_lasso = reg_lasso.predict(x_test)
 graficar_resultados(y_test, y_pred_lasso,
                     titulo=f"Resultados Regresión: LASSO, MAE: {round(mae)}")
+print("Suma de la predicción", y_pred_lasso.sum())
+print("Suma de variable real", y_test.sum())
 
 
 # Regresión lineal por lasso lars
@@ -67,3 +46,5 @@ print(coeficientes)
 y_pred_lars = reg_lars.predict(x_test)
 graficar_resultados(y_test, y_pred_lars,
                     titulo=f"Resultados Regresión: LASSO LARS, MAE: {round(mae)}")
+print("Suma de la predicción", y_pred_lasso.sum())
+print("Suma de variable real", y_test.sum())

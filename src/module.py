@@ -11,6 +11,43 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import RepeatedKFold
 
 
+def dependiente_superficie(hsx, ret, tax):
+    """
+    Evalua si la persona habita en la casa y además tiene beneficio por ser
+    jubilido de serlo, se normaliza para saber cuanto debería pagar, si no
+    recibiera estos beneficios
+
+    Parameters
+    ----------
+    hsx : int
+        DESCRIPTION.
+    ret : int
+        DESCRIPTION.
+    tax : int
+        DESCRIPTION.
+
+    Returns
+    -------
+    tax_fixed : int
+        impuestos a justados a únicamente dependientes de los pies de
+        superficie.
+
+    """
+    suma = hsx + ret
+    if suma == 2:
+        # Recibe los dos beneficios
+        factor = 0.8
+        tax_fixed = tax / factor
+    elif suma == 1:
+        # Recibe 1 de los beneficios
+        factor = 0.8
+        tax_fixed = tax / factor
+    elif suma == 0:
+        # No recibe nada
+        tax_fixed = tax
+    return tax_fixed
+
+
 def graficar_resultados(y, y_pred, titulo="Resultados Regresión"):
     """
     Plot de los resultados
@@ -38,8 +75,6 @@ def graficar_resultados(y, y_pred, titulo="Resultados Regresión"):
     ax.tick_params(axis='both', which='major', labelsize=15)
     plt.legend(["TAX: Reales", "Predicción"], fontsize=15,
                loc="lower right")
-    plt.ylim(900, 1350)
-    plt.xlim(900, 1350)
     plt.show()
 
 
