@@ -4,7 +4,7 @@ from statsmodels.graphics.gofplots import qqplot
 
 import matplotlib.pyplot as plt
 # modulo de trabajo
-from module import ttest
+from src.module import ttest
 
 
 def comments_():
@@ -39,7 +39,7 @@ def comments_():
 
 
 # lectura de los datos
-data = pd.read_excel("../data/ryder.xlsx")
+data = pd.read_excel("data/ryder.xlsx")
 # media base de datos
 mu_bd = data["REC_SQFT"].mean()
 # medida muy precisamente

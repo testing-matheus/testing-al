@@ -1,10 +1,11 @@
 # librerias
+import random
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 # module
-from module import (regression_lineal_lasso, graficar_resultados,
-                    lasso_lars, alpha_lasso_optimization)
+from src.module import (regression_lineal_lasso, graficar_resultados,
+                        lasso_lars, alpha_lasso_optimization)
 
 
 def comments_():
@@ -30,8 +31,8 @@ def comments_():
     return True
 
 
-raw_data = pd.read_excel("../data/ryder.xlsx")
-x = pd.read_excel("../data/cleaned.xlsx", index_col=0)
+raw_data = pd.read_excel("data/ryder.xlsx")
+x = pd.read_excel("data/cleaned.xlsx", index_col=0)
 
 y = x[["TAX"]]
 x = x[['ACT_SQFT']]
@@ -41,7 +42,7 @@ scaler = MinMaxScaler(feature_range=(0, 1))
 # Normalizar
 x = scaler.fit_transform(x)
 # # Guardar objeto scaler
-
+seed = random.randint(1, 21)
 # Dividir los conjuntos de datos
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2,
                                                     random_state=20)
@@ -66,6 +67,3 @@ print(coeficientes)
 y_pred_lars = reg_lars.predict(x_test)
 graficar_resultados(y_test, y_pred_lars,
                     titulo=f"Resultados Regresión: LASSO LARS, MAE: {round(mae)}")
-
-
-

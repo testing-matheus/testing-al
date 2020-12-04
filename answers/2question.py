@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 # modulo de trabajo
-from module import calcular_intervalo_confianza
+from src.module import calcular_intervalo_confianza
 
 
 def comments_():
@@ -29,7 +29,7 @@ def comments_():
 
 
 # lectura de los datos
-data = pd.read_excel("../data/ryder.xlsx")
+data = pd.read_excel("data/ryder.xlsx")
 
 # ERROR DE MEDICIÓN
 # diffrencia entre la BD y la medición para el feature de pies de la casa
