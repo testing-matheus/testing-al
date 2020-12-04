@@ -39,20 +39,20 @@
 ### 2) Comprensión de la BD:
 
 > Descripción de la ubicación de la propiedad en 3 carácteristicas
-SUB: Subdivisión en la que se ubica la propiedad
-BLOCK: Bloque de fraccionamiento en el cual se encuentra la propiedad
-LOT:  Número de lote
+- SUB: Subdivisión en la que se ubica la propiedad
+- BLOCK: Bloque de fraccionamiento en el cual se encuentra la propiedad
+- LOT:  Número de lote
 
 > Tipo de casa
-IMP: 1, si se mejora 0 si no
+- IMP: 1, si se mejora 0 si no
 
 > Excención de pago
-HSX: 1 si vive 0 si no
-RET: 1 si se jubiló 0 sino
+- HSX: 1 si vive 0 si no
+- RET: 1 si se jubiló 0 sino
 
 > propiedades de la casa
-REC_SQFT: Metraje de registrado en la base de datos
-ACT_SQFT: Metraje reales medidos por el tasador (ponele voluntaaaad)
+- REC_SQFT: Metraje de registrado en la base de datos
+- ACT_SQFT: Metraje reales medidos por el tasador (ponele voluntaaaad)
 
 > output
-TAX: Impuesto actual del condado
+- TAX: Impuesto actual del condado
