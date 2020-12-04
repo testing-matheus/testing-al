@@ -4,6 +4,7 @@ import numpy as np
 # modulo de trabajo
 from src.module import calcular_intervalo_confianza
 
+
 # lectura de los datos
 data = pd.read_excel("data/ryder.xlsx")
 

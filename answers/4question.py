@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from src.module import (regression_lineal_lasso, graficar_resultados,
                         lasso_lars, alpha_lasso_optimization)
 
+
 # cargamos la data ya limpiada
 x = pd.read_excel("data/cleaned.xlsx", index_col=0)
 

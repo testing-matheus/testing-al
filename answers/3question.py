@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 # modulo de trabajo
 from src.module import ttest
 
+
 # lectura de los datos
 data = pd.read_excel("data/ryder.xlsx")
 # media base de datos
